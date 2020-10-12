@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+@author: Sankalp (IDRP19CG201)
+"""
+
+"""
+#libs
+"""
+
 import numpy as np
 import pandas as pd
 import os
