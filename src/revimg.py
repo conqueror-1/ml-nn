@@ -1,5 +1,5 @@
 def reverse(image):
-    height, width = img.shape
+    height, width = image.shape
 
     #size of each image in mnist dataset
     rev = np.zeros((28,28))

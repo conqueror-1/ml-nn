@@ -21,13 +21,14 @@ import pandas as pd
 #functions
 """
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import confusion_matrix, accuracy_score
+from sklearn.metrics import accuracy_score
 
 """
 #model training lib
 """
 import train
 import read_mnist
+import revimg
 
 (x_train,y_train),(x_test,y_test) = read_mnist.read()
 
@@ -49,6 +50,7 @@ x_test = tf.keras.utils.normalize(x_test, axis=1)
 """
 training model
 """
+"""
 model = train.train_model()
 model.fit(x_train,y_train, epochs=10)
 
@@ -60,5 +62,27 @@ y_pred = []
 
 for val in range (0,10000):
     y_pred.append(np.argmax(y_predict[val]))
+"""
+
+"""
+Inverting all images in the dataset
+"""
+
+x_test_opp = []
+for img in range (len(x_test)):
+    x_test_opp.append(revimg.reverse(x_test[img]))
+
+x_test_opp = np.array(x_test_opp)
+
+
+x_train_opp = []
+for img in range (len(x_train)):
+    x_train_opp.append(revimg.reverse(x_train[img]))
+
+x_train_opp = np.array(x_train_opp)
+
+model.fit (x_train_opp,y_train,epochs = 10)
+
+loss_opp, acc_opp = model.evaluate (x_test_opp,y_test)
 
 
