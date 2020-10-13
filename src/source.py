@@ -35,11 +35,25 @@ import read_mnist
 """
 testing and seeing images
 """
-plt.imshow(x_train[0],cmap=plt.cm.binary)
-plt.show()
+
 print (x_train.shape)
 print (y_train.shape)
 print (x_test.shape)
 print (y_test.shape)
 
-model = train.train_model() 
+"""
+Normalizing dataset
+"""
+x_train = tf.keras.utils.normalize(x_train, axis=1)
+x_test = tf.keras.utils.normalize(x_test, axis=1)
+
+"""
+training model
+"""
+model = train.train_model()
+model.fit(x_train,y_train, epochs=10)
+
+loss, acc = model.evaluate(x_test,y_test)
+print ("loss is {} and accuracy is {}".format(loss,acc))
+
+
