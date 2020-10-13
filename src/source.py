@@ -55,4 +55,10 @@ model.fit(x_train,y_train, epochs=10)
 loss, acc = model.evaluate(x_test,y_test)
 print ("loss is {} and accuracy is {}".format(loss,acc))
 
+y_predict = model.predict (x_test)
+y_pred = []
+
+for val in range (0,10000):
+    y_pred.append(np.argmax(y_predict[val]))
+
 
