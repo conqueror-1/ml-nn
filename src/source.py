@@ -22,4 +22,11 @@ import pandas as pd
 #functions
 """
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import confusion_matrix, accuracy_score 
+from sklearn.metrics import confusion_matrix, accuracy_score
+
+"""
+#model training lib
+"""
+import train
+
+model = train.train_model() 
