@@ -28,5 +28,18 @@ from sklearn.metrics import confusion_matrix, accuracy_score
 #model training lib
 """
 import train
+import read_mnist
+
+(x_train,y_train),(x_test,y_test) = read_mnist.read()
+
+"""
+testing and seeing images
+"""
+plt.imshow(x_train[0],cmap=plt.cm.binary)
+plt.show()
+print (x_train.shape)
+print (y_train.shape)
+print (x_test.shape)
+print (y_test.shape)
 
 model = train.train_model() 
